@@ -1,0 +1,74 @@
+<div class="container mt-5 text-main">
+  <div class="row">
+    <div class="col-md-6 p-0 ">
+      <figure>
+        <img src="./assets/Images/gaming.ebaf2ffc84f4451d.jpg" class="w-100 h-100" alt="" srcset="">
+      </figure>
+    </div>
+    <div class="col-md-6 sec-bg px-4  ">
+      <form (ngSubmit)="handelRegister(registrationForm)" [formGroup]="registrationForm" class="py-4  ">
+
+          <h2 class="text-center mb-4 fs-4" >Create My Account!</h2>
+        <div class="row my-3">
+          <div class="col-md-6 ">
+            <input class="form-control" type="text" name="" placeholder="name"  formControlName="name" >
+            <div *ngIf="registrationForm.get('name')?.errors && registrationForm.get('name')?.touched " class="alert alert-danger py-2  my-3  ">
+              <p *ngIf="registrationForm.get('name')?.getError('required')" class="py-0  my-auto "> name is required </p>
+              <p *ngIf="registrationForm.get('name')?.getError('pattern')" class="py-0"> First Name length must be between 3 to 20 character </p>
+            </div>
+          </div>
+          <div class="col-md-6 ">
+            <input class="form-control" type="tel" name="" placeholder="phone Number"  formControlName="phone" >
+            <div *ngIf="registrationForm.get('phone')?.errors && registrationForm.get('phone')?.touched " class="alert alert-danger py-2  my-3  ">
+              <p *ngIf="registrationForm.get('phone')?.getError('required')" class="py-0  my-auto "> phone is required </p>
+              <p *ngIf="registrationForm.get('phone')?.getError('pattern')" class="py-0"> only Egypt number </p>
+            </div>
+          </div>
+        </div>
+      <input class="form-control my-3" type="email" name="" placeholder="email"  formControlName="email" >
+      <div *ngIf="registrationForm.get('email')?.errors && registrationForm.get('email')?.touched " class="alert alert-danger py-2  my-3  ">
+        <p *ngIf="registrationForm.get('email')?.getError('required')" class="py-0  my-auto "> email is required </p>
+        <p *ngIf="registrationForm.get('email')?.getError('pattern')" class="py-0"> enter valid mail </p>
+      </div>
+      <input class="form-control my-3" type="password" name="password" placeholder="Password"  formControlName="password">
+      <div *ngIf="registrationForm.get('password')?.errors && registrationForm.get('password')?.touched " class="alert alert-danger py-2  my-3  ">
+        <p *ngIf="registrationForm.get('password')?.getError('required')" class="py-0  my-auto "> password is required </p>
+        <p *ngIf="registrationForm.get('password')?.getError('pattern')" class="py-0"> password at least 8 character one num  </p>
+      </div>
+      <input class="form-control my-3" type="password" name="password" placeholder="rePassword"  formControlName="rePassword">
+      <div *ngIf="registrationForm.get('rePassword')?.errors && registrationForm.get('rePassword')?.touched " class="alert alert-danger py-2  my-3  ">
+        <p *ngIf="registrationForm.get('rePassword')?.getError('required')" class="py-0  my-auto "> rePassword is required </p>
+        <p *ngIf="registrationForm.get('rePassword')?.getError('passwordMatch')" class="py-0  my-auto "> password and rePassword doesn't match </p>
+        <p *ngIf="registrationForm.get('rePassword')?.getError('pattern')" class="py-0"> rePassword at least 8 character one num  </p>
+      </div>
+
+
+        <button type="submit" [disabled]="registrationForm.invalid" class="btn btn-secondary d-block  w-100 ">Create Account</button>
+        <div *ngIf="apiError || apiMsg " class="alert alert-danger ">
+          {{apiError}}
+          {{apiMsg}}
+        </div>
+        <p class="text-center mt-2 text-muted  cpr ">
+          This site is protected by reCAPTCHA and the Google <a href="#">Privacy Policy</a>  and <a href="#">Terms of Service</a> apply.
+        </p>
+        <hr>
+        <p class="text-center">Already a member ? <a routerLink="/login"> Log in <i class="fa-solid fa-angle-right fa-sm "></i> </a></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="loaderBox bg-main" *ngIf="loader">
+  <div class="sk-cube-grid" ><!--  -->
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
+</div>

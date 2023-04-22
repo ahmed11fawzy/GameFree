@@ -1,0 +1,135 @@
+<section class="my-5" >
+  <div class="container"  >
+    <div class="row">
+      <div class="col-md-4"  >
+        <div class=" "  (mouseenter)="onPlayVideo()" (mouseleave)="onPlayOffVideo()" >
+
+          <div class="position-relative">
+            <img src="{{gameDetails.thumbnail}}" class="w-100  rounded " alt="">
+
+
+            <div class="w-100 d-none position-absolute top-0 start-0 " [ngClass]="{'d-none':playVideo}" >
+              <video src="{{gameDetails.thumbnail.replace('thumbnail.jpg','videoplayback.webm')}}"  autoplay loop  preload="none" class="w-100 rounded "  >
+
+                <source src="{{gameDetails.thumbnail.replace('thumbnail.jpg','videoplayback.webm')}}" type="video/webm" >
+
+              </video>
+            </div>
+
+          </div>
+
+          <div class=" row  mt-3 ps-3 ">
+            <button class="btn bg-main sec-bg me-2  text-light col-md-2 ">free</button>
+            <a href="{{gameDetails.freetogame_profile_url}}" target="_blank"  class="btn btn-primary col-md-9 ">
+                Play Now
+              <i class="fa-solid fa-right-from-bracket ms-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" >
+        <div class="text-main ">
+          <h1>{{gameDetails.title}}</h1>
+          <h3>About {{gameDetails.title}}</h3>
+          <p class="fs-4">{{gameDetails.description}}</p>
+          <div class="mt-4">
+            <h3>Minimum System requires</h3>
+            <p>
+              <strong>Graphics : </strong>
+              <span>{{gameDetails.minimum_system_requirements.graphics}}</span>
+            </p>
+            <p>
+              <strong>memory : </strong>
+              <span>{{gameDetails.minimum_system_requirements.memory}}</span>
+            </p>
+            <p>
+              <strong>OS : </strong>
+              <span>{{gameDetails.minimum_system_requirements.os}}</span>
+            </p>
+            <p>
+              <strong>processor : </strong>
+              <span>{{gameDetails.minimum_system_requirements.processor}}</span>
+            </p>
+            <p>
+              <strong>Storage : </strong>
+              <span>{{gameDetails.minimum_system_requirements.storage}}</span>
+            </p>
+          </div>
+          <div>
+            <h3>{{gameDetails.title}} Screenshots </h3>
+
+            <owl-carousel-o [options]="customOptions">
+
+              <ng-container *ngFor="let slide of gameDetails.screenshots">
+                <ng-template carouselSlide >
+                  <img [src]="slide.image" >
+                </ng-template>
+              </ng-container>
+
+            </owl-carousel-o>
+
+
+
+          </div>
+          <div class="mt-4">
+            <h3 >Additional Data</h3>
+            <div class="row gy-4 mt-2  ">
+              <div class="col-md-4">
+                <div>
+                  <h6 class="text-muted" >Title</h6>
+                  <h5>{{gameDetails.title}}</h5>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div>
+                  <h6 class="text-muted" >Developer</h6>
+                  <h5> {{gameDetails.developer}} </h5>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div>
+                  <h6 class="text-muted" >Publisher</h6>
+                  <h5> {{ gameDetails.publisher }} </h5>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div>
+                  <h6 class="text-muted" >Release Date</h6>
+                  <h5> {{gameDetails.release_date}} </h5>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div>
+                  <h6 class="text-muted" >Genre</h6>
+                  <h5> {{ gameDetails.genre }} </h5>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div>
+                  <h6 class="text-muted" >Platform</h6>
+                  <h5> {{ gameDetails.platform  }}  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="loaderBox bg-main" *ngIf="loader">
+  <div class="sk-cube-grid" ><!--  -->
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
+</div>
+

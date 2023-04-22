@@ -1,0 +1,58 @@
+
+<nav class="navbar navbar-expand-md bg-dark shadow-sm " >
+    <div class="container">
+      <a class="navbar-brand text-white   " >
+        <img src="./assets/Images/logo.png" class=""  alt="" srcset="">
+        <span class="fs-5 pt-3 fontstyle ">Game Over</span>
+      </a>
+    <button class="navbar-toggler d-lg-none " type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-bars fa-xl text-light "></i>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav ms-5 me-auto mt-2 mt-lg-0">
+            <li *ngIf="isLogIn" class="nav-item">
+                <a class="nav-link " routerLink="home"  aria-current="page">Home </a>
+            </li>
+            <li *ngIf="isLogIn" class="nav-item">
+                <a class="nav-link" routerLink="all" >All</a>
+            </li>
+            <li *ngIf="isLogIn" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle cursor-pointer"  id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Platforms</a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" [routerLink]="['/platform',pcPlatform]" >pc</a>
+                    <a class="dropdown-item" [routerLink]="['/platform',browserPlatform]" >browser</a>
+                </ul>
+            </li>
+            <li *ngIf="isLogIn" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle  cursor-pointer"  id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a *ngFor="let item of sortsArr" class="dropdown-item" [routerLink]="['sort-by',item]"  >{{item}}</a>
+
+                </div>
+            </li>
+            <li *ngIf="isLogIn" class="nav-item dropdown  cursor-pointer">
+                <a class="nav-link dropdown-toggle"  id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a *ngFor="let category of allCategories" [routerLink]="['/category', category]" class="dropdown-item" >{{category}}</a>
+
+                </div>
+            </li>
+        </ul>
+        <ul class=" navbar-nav ms-auto mt-2 mt-lg-0 ">
+          <li *ngIf="!isLogIn" class="nav-item cursor-pointer  ">
+            <a class="nav-link px-3 " routerLink="login"  aria-current="page">LogIn </a>
+        </li>
+        <li *ngIf="!isLogIn" class="nav-item me-2  ">
+          <a class="nav-link " class="btn btn-outline-primary " routerLink="/register"  aria-current="page">Join Free </a>
+        </li>
+        <li *ngIf="isLogIn" class="nav-item ms-auto ">
+          <a class="nav-link " (click)="logOut()" class="btn btn-outline-primary  " routerLink="login"  aria-current="page">Log out </a>
+        </li>
+
+
+        </ul>
+
+    </div>
+    </div>
+</nav>

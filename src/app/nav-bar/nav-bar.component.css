@@ -1,0 +1,34 @@
+
+img{
+  width: 70px;
+  filter: drop-shadow(4px 1px 3px #1983e6ce);
+}
+
+.nav-link{
+  color: #eee;
+}
+
+
+
+
+@media (min-width: 575px) and (max-width: 766.98px)
+{
+
+  /* .navbar-toggler{
+    display: block !important;
+
+  }
+  .navbar-collapse{
+    display: block;
+
+
+  }
+  .collapse:not(.show) {
+    display: none;
+  }
+
+  .navbar-nav{
+    display: flex;
+    flex-direction: column; */
+  /* } */
+ }
